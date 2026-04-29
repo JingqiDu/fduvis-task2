@@ -1,0 +1,283 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", Arial, sans-serif;
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --border: #d9dfeb;
+  --text: #1f2937;
+  --muted: #5b6475;
+  --accent: #2563eb;
+  --shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+main {
+  width: min(1240px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 32px 0 48px;
+}
+
+.page-header {
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+.page-header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.chart-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 20px 20px 24px;
+  margin-bottom: 24px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.section-heading h2 {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+}
+
+.section-heading p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 760px;
+  line-height: 1.5;
+}
+
+.toggle {
+  display: inline-flex;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 999px;
+  background: #eef2ff;
+}
+
+.mode-button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+  background: transparent;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.mode-button.active {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.level3-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.level3-panel {
+  width: 100%;
+}
+
+.level3-panel h3 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  color: #334155;
+}
+
+.level3-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 0 14px;
+  border-radius: 12px;
+  scrollbar-gutter: stable;
+}
+
+#level3-network-svg {
+  width: 1080px;
+  min-width: 1080px;
+  max-width: none;
+}
+
+#level3-matrix-svg {
+  width: min(100%, 560px);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.level3-scroll::-webkit-scrollbar {
+  height: 14px;
+}
+
+.level3-scroll::-webkit-scrollbar-track {
+  background: #e2e8f0;
+  border-radius: 999px;
+}
+
+.level3-scroll::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 999px;
+}
+
+.level3-scroll::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+  min-width: 160px;
+  max-width: 280px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.95);
+  color: #ffffff;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  opacity: 0;
+  transform: translate(-50%, calc(-100% - 12px));
+  transition: opacity 120ms ease;
+  z-index: 1000;
+}
+
+.tooltip strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.axis text,
+.legend text {
+  fill: #334155;
+  font-size: 12px;
+}
+
+.axis path,
+.axis line,
+.legend-axis path,
+.legend-axis line {
+  stroke: #cbd5e1;
+}
+
+.cell {
+  stroke: rgba(255, 255, 255, 0.8);
+  stroke-width: 1px;
+}
+
+.cell-outline {
+  fill: none;
+  stroke: #dbe2ef;
+}
+
+.level2-line {
+  fill: none;
+  stroke-width: 1.8px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.level2-line.max {
+  stroke: #dc2626;
+}
+
+.level2-line.min {
+  stroke: #2563eb;
+}
+
+.network-bounds {
+  fill: #f8fafc;
+  stroke: #e2e8f0;
+}
+
+.node-label,
+.matrix-label {
+  fill: #334155;
+  font-size: 11px;
+}
+
+.node-label {
+  font-weight: 600;
+  paint-order: stroke;
+  stroke: #ffffff;
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+.matrix-label.column {
+  text-anchor: start;
+}
+
+.link {
+  stroke: #94a3b8;
+  stroke-opacity: 0.6;
+}
+
+.node {
+  fill: #3b82f6;
+  stroke: #1d4ed8;
+  stroke-width: 1.5px;
+}
+
+.matrix-cell {
+  stroke: rgba(255, 255, 255, 0.7);
+  stroke-width: 0.8px;
+}
+
+.legend-title {
+  font-size: 12px;
+  fill: #0f172a;
+  font-weight: 600;
+}
+
+.dimmed {
+  opacity: 0.15;
+}
+
+.highlight {
+  opacity: 1;
+  stroke: #111827;
+  stroke-width: 2px;
+}
+
+.row-highlight,
+.column-highlight {
+  fill: rgba(37, 99, 235, 0.08);
+}
+
+@media (max-width: 1100px) {
+  .section-heading {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task2 D3 Visualizations</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main>
+    <header class="page-header">
+      <h1>Task2: D3 Visualization Challenges</h1>
+      <p>Year/month heatmaps, daily temperature glyphs, and linked CSE collaboration views.</p>
+    </header>
+
+    <section class="chart-card" id="level1">
+      <div class="section-heading">
+        <div>
+          <h2>Level 1: Year/Month Heatmap</h2>
+          <p>Each cell represents one month in one year. Color encodes monthly maximum or minimum temperature.</p>
+        </div>
+        <div class="toggle" aria-label="Level 1 temperature mode">
+          <button class="mode-button active" data-level="1" data-mode="max">Max temperature</button>
+          <button class="mode-button" data-level="1" data-mode="min">Min temperature</button>
+        </div>
+      </div>
+      <svg id="level1-svg" width="1120" height="520" role="img" aria-label="Monthly temperature heatmap"></svg>
+    </section>
+
+    <section class="chart-card" id="level2">
+      <div class="section-heading">
+        <div>
+          <h2>Level 2: Daily Changes in Each Month</h2>
+          <p>Recent years are shown as a matrix, with a mini line chart inside each month cell.</p>
+        </div>
+        <div class="toggle" aria-label="Level 2 temperature mode">
+          <button class="mode-button active" data-level="2" data-mode="max">Max temperature</button>
+          <button class="mode-button" data-level="2" data-mode="min">Min temperature</button>
+        </div>
+      </div>
+      <svg id="level2-svg" width="1120" height="560" role="img" aria-label="Daily temperature mini line heatmap"></svg>
+    </section>
+
+    <section class="chart-card" id="level3">
+      <div class="section-heading">
+        <div>
+          <h2>Level 3: CSE Collaboration Network and Matrix</h2>
+          <p>Hover the network or the matrix to link professors and their collaborations across both views.</p>
+        </div>
+      </div>
+      <div class="level3-layout">
+        <div class="level3-panel">
+          <h3>Node-link diagram</h3>
+          <div class="level3-scroll">
+            <svg id="level3-network-svg" width="1080" height="620" viewBox="0 0 1080 620" role="img" aria-label="CSE coauthor node-link diagram"></svg>
+          </div>
+        </div>
+        <div class="level3-panel">
+          <h3>Matrix view</h3>
+          <svg id="level3-matrix-svg" width="560" height="560" viewBox="0 0 560 560" role="img" aria-label="CSE coauthor adjacency matrix"></svg>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="tooltip" class="tooltip" aria-hidden="true"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="js/level1.js"></script>
+  <script src="js/level2.js"></script>
+  <script src="js/level3.js"></script>
+</body>
+</html>
